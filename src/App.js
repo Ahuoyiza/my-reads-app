@@ -41,7 +41,6 @@ const App = () => {
       setBooks([...books, book])
     }
   }
-console.log(books)
 
     return (
       <div className="app">

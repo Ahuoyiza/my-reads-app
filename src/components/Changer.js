@@ -1,7 +1,5 @@
 import React, { useContext, useState }  from 'react'
-import BookStoreContext from '../BookStore'
-
-
+import BookStoreContext from '../BookStore';
 
 
 const Changer = ({ book }) => {
