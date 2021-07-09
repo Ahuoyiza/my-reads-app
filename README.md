@@ -4,6 +4,8 @@ This is my solution for udacity read-me-app project for react nano degree,
 
 this file will be updated as neeed be
 
+View live project: [My Reads](https://my-reads-app-beryl.vercel.app/)
+
 
 ## TL;DR
 
