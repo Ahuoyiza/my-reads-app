@@ -3,45 +3,29 @@ import './App.css';
 import Home from './components/Home';
 import { BookStoreProvider } from './BookStore';
 import { getAll, update } from './BooksAPI';
-import Search from './components/Search';
-import ListBooks from './components/ListBooks';
 
-// const shelves = [
-//   {
-//     id:1,
-//     name: 'Currently Reading',
-//   },
-//   {
-//     id:2,
-//     name: 'Want to Read'
-//   },
-//   {
-//     id:3,
-//     name: 'Read'
-//   }
-// ];
 
 const App = () => {
   const [books, setBooks] = useState([])
   const [search, setSearch] = useState([])
-  const [update, setUpdate] = useState(true)
-
+  const [shouldUpdate, setShouldUpdate] = useState(true)
+  
   const read = books && books.filter((book) => book.shelf === 'read')
 
   const currentlyReading = books && books.filter((book) => book.shelf === 'currentlyReading')
   const wantToRead = books && books.filter((book) => book.shelf === 'wantToRead')
 
   useEffect(() => {
-    if (update) {
+    if (shouldUpdate) {
       getAll()
         .then((data) => {
           setBooks(data)
         })
-        .then(() => setUpdate(false))
+        .then(() => setShouldUpdate(false))
         .catch((err) => console.log(err))
     }
-    setUpdate(false)
-  }, [update])
+    setShouldUpdate(false)
+  }, [shouldUpdate])
 
   const handleShelfBooks = (shelf, book) => {
     const { id } = book
@@ -53,14 +37,15 @@ const App = () => {
       allBooks[bookIndex].shelf = shelf
       setBooks(allBooks)
     } else {
-      setUpdate(true)
+      setShouldUpdate(true)
       setBooks([...books, book])
     }
   }
-
+console.log(books)
 
     return (
       <div className="app">
+        
         <BookStoreProvider
             value={{
             books,

@@ -15,6 +15,7 @@ const Home = () => {
                 <Switch>
                     <Route exact path='/'>
                     <div className='list-books'>
+                        <h1>Some stuff</h1>
                         <div>
                             <BookShelf name='Currently Reading' books={currentlyReading} />
                             <BookShelf name='Want to Read' books={wantToRead} />
