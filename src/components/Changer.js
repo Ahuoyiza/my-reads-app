@@ -6,11 +6,11 @@ import BookStoreContext from '../BookStore'
 
 const Changer = ({ book }) => {
     const shelf = book.shelf ? book.shelf : 'none'
-  const { handleShelf } = useContext(BookStoreContext)
+  const { handleShelfBooks } = useContext(BookStoreContext)
   const [value, setValue] = useState(shelf)
 
   const onChangeHandler = (e) => {
-    handleShelf(e.target.value, book)
+    handleShelfBooks(e.target.value, book)
     setValue(e.target.value)
   }
     return (
