@@ -7,7 +7,8 @@ import { getAll, update } from './BooksAPI';
 
 const App = () => {
   const [books, setBooks] = useState([])
-  const [search, setSearch] = useState([])
+  const [searchResults, setSearchResults] = useState([])
+
   const [shouldUpdate, setShouldUpdate] = useState(true)
   
   const read = books && books.filter((book) => book.shelf === 'read')
@@ -48,11 +49,11 @@ const App = () => {
         <BookStoreProvider
             value={{
             books,
-            search,
+            searchResults,
             currentlyReading,
             read,
             wantToRead,
-            setSearch,
+            setSearchResults,
             setBooks,
             handleShelfBooks,
           }}
